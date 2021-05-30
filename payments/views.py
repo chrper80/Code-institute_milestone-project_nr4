@@ -65,6 +65,6 @@ class CancelView(TemplateView):
     template_name = 'payments/cancel.html'
 
 
-class SuccessView(TemplateView):
-    # clear session
-    template_name = 'payments/success.html'
+def success(request):
+    del request.session['cart_items']
+    return render(request, 'payments/success.html')
