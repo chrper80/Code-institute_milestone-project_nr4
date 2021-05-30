@@ -28,3 +28,12 @@ def categories(request, category_id):
         "products": products
     }
     return render(request, 'store/categories.html', context)
+
+
+def ind_products(request, product_id):
+    product = Product.objects.get(id=product_id)
+
+    context = {
+        "product": product
+    }
+    return render(request, 'store/individual_products.html', context)

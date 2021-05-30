@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'store/store.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1 class="heading">{{product.product_name}}</h1>
+
+<section id="ind-product">
+    <div class="grid-container">
+        <img src="{{ product.product_image.url }}" alt="Image of individual product">
+        <p>Size: {{product.product_description}}</p>
+        <p>Price: {{product.price_with_vat}}kr</p>
+        <form action="#" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <input type="submit" value="Add to cart" class="button">
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'store/home.js' %}"></script>
+{% endblock %}
