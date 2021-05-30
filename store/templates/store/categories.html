@@ -13,7 +13,7 @@
     <div class="product-container">
         <img src="{{i.product_image.url}}" alt="A natur image">
         <h4>{{i.product_name}}</h4>
-        <p>{{i.price_with_vat}}kr</p>
+        <p>{{i.display_price}}kr</p>
         <a href="{% url 'ind_products' i.id %}">To details</a>
     </div>
 

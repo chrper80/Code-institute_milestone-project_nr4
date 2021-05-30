@@ -23,7 +23,7 @@
         {% for i, p in products_in_cart.items %}
         <tr>
             <td>{{p.product.product_name}}</td>
-            <td>{{p.product.product_price}}kr</td>
+            <td>{{p.product.display_price}}kr</td>
             <td>{{p.counter}}</td>
             <td>
                 <form action="{% url 'remove_from_cart' %}" method="POST">
