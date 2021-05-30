@@ -11,7 +11,7 @@
     <div class="inner-category-container">
         <img src="{{i.category_image.url}}" alt="Category image">
         <h4>{{i.category_name}}</h4>
-        <a href="#">{{i.category_description}}</a>
+        <a href="{% url 'categories' i.id %}">{{i.category_description}}</a>
     </div>
     {% endfor %}
 </section>
