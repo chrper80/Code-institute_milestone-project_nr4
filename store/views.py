@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category, Product
 
 
@@ -37,3 +37,40 @@ def ind_products(request, product_id):
         "product": product
     }
     return render(request, 'store/individual_products.html', context)
+
+
+def add_cart(request):
+    products_in_cart = {}
+    cart_ids = request.session.get("cart_items", [])
+    if request.method == "POST":
+        item_id = request.POST["product_id"]
+        cart_ids.append(item_id)
+
+    for i in cart_ids:
+        product = Product.objects.get(id=int(i))
+
+        if products_in_cart.get(product.id):
+            products_in_cart[product.id]["counter"] += 1
+        else:
+            products_in_cart[product.id] = {"product": product, "counter": 1}
+
+    request.session["cart_items"] = cart_ids
+
+    context = {
+        "products_in_cart": products_in_cart,
+    }
+
+    return render(request, "store/cart.html", context)
+
+
+def remove_from_cart(request):
+
+    if request.method == "POST":
+        cart_ids = request.session.get("cart_items", [])
+        item_id = request.POST["id"]
+        x = cart_ids.index(item_id)
+        del cart_ids[x]
+
+        request.session["cart_items"] = cart_ids
+
+    return redirect("add_cart")
