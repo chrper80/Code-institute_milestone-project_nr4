@@ -1,24 +1,45 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'users/users.css' %}">
+{% endblock %}
 
 {% block content %}
 
+<section id="container">
+    <h1 class="heading">{{username}}'s page</h1>
 
-    <h1>{{username}}'s page</p>
-    <h4>Change email</h4>
-    <p>{{email}}</p>
-    <form action="{% url 'change_email' %}" method="POST">
+    <form action="{% url 'change_stuff' %}" method="POST">
         {% csrf_token %}
-        <input type="email" placeholder="Enter new email" name="email">
-        <input type="submit", value="submit">
+        <fieldset>
+            <legend>Update details</legend>
+            <input class="input" type="text" name="first_name" value="{{first_name}}">
+            <input class="input" type="text" name="last_name" value="{{last_name}}">
+            <input class="input" type="text" name="username" value="{{username}}">
+            <input class="input" type="email" name="email" value="{{email}}">
+            <input class="submit-button" type="submit" value="Submit">
+        </fieldset>
     </form>
-    <h4>Change password</h4>
+
+    <br>
+
     <form action="{% url 'change_password' %}" method="POST">
         {% csrf_token %}
-        <input type="password" placeholder="Enter new password" name="password">
-        <input type="submit", value="submit">
+        <fieldset>
+            <legend>Change password</legend>
+            <input class="input" type="password" placeholder="Enter your new password" name="password">
+            <input class="submit-button" type="submit" value="Change password">
+        </fieldset>
     </form>
-    <h4>Delete profile</h4>
-    <a href="{% url 'delete_user' %}"><button>Delete</button></a>
 
+    <br>
+
+    <form action="{% url 'delete_user' %}">
+        <fieldset>
+            <legend>Delete user profile</legend>
+            <input class="delete-button" type="submit" value="Delete">
+        </fieldset>
+
+    </form>
+</section>
 {% endblock %}

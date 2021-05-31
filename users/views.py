@@ -19,15 +19,16 @@ def new_user(request):
 
 
 def user_page(request):
-
+    first_name = request.user.first_name
+    last_name = request.user.last_name
     username = request.user.username
     email = request.user.email
-    password = request.user.password
 
     context = {
         "username": username,
         "email": email,
-        "password": password
+        "first_name": first_name,
+        "last_name": last_name
     }
 
     return render(request, 'users/user_page.html', context)
@@ -45,11 +46,14 @@ def change_password(request):
         return redirect("login")
 
 
-def change_email(request):
-    if request.method == "POST":
+def change_stuff(request):
+    if request.method == 'POST':
         user = User.objects.get(username=request.user.username)
-        new_email = request.POST["email"]
-        user.email = new_email
+        form = request.POST
+        user.first_name = form["first_name"]
+        user.last_name = form["last_name"]
+        user.user_name = form["username"]
+        user.email = form["email"]
         user.save()
 
         return redirect("user_page")
