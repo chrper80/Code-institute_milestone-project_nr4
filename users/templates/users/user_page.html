@@ -13,10 +13,12 @@
         {% csrf_token %}
         <fieldset>
             <legend>Update details</legend>
-            <input class="input" type="text" name="first_name" value="{{first_name}}">
-            <input class="input" type="text" name="last_name" value="{{last_name}}">
-            <input class="input" type="text" name="username" value="{{username}}">
-            <input class="input" type="email" name="email" value="{{email}}">
+            <label for="id_first_name">{{ first_name }}</label>
+            {{form.first_name}}
+            <label for="id_last_name">{{ last_name }}</label>
+            {{form.last_name}}
+            <label for="id_email">{{ email }}</label>
+            {{form.email}}
             <input class="submit-button" type="submit" value="Submit">
         </fieldset>
     </form>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import ext_UserCreationForm
+from .forms import ext_UserCreationForm, ChangingStuff
 from django.contrib import messages
 from django.contrib.auth.models import User
 
@@ -19,16 +19,18 @@ def new_user(request):
 
 
 def user_page(request):
+    form = ChangingStuff()
     first_name = request.user.first_name
     last_name = request.user.last_name
     username = request.user.username
     email = request.user.email
 
     context = {
-        "username": username,
-        "email": email,
+        "form": form,
         "first_name": first_name,
-        "last_name": last_name
+        "last_name": last_name,
+        "username": username,
+        "email": email
     }
 
     return render(request, 'users/user_page.html', context)
@@ -49,12 +51,12 @@ def change_password(request):
 def change_stuff(request):
     if request.method == 'POST':
         user = User.objects.get(username=request.user.username)
-        form = request.POST
-        user.first_name = form["first_name"]
-        user.last_name = form["last_name"]
-        user.user_name = form["username"]
-        user.email = form["email"]
-        user.save()
+        form = ChangingStuff(request.POST)
+        if form.is_valid():
+            user.first_name = form.cleaned_data["first_name"]
+            user.last_name = form.cleaned_data["last_name"]
+            user.email = form.cleaned_data["email"]
+            user.save()
 
         return redirect("user_page")
 
