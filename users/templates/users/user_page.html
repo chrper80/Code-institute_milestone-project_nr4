@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load crispy_forms_filters %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'users/users.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -13,12 +14,8 @@
         {% csrf_token %}
         <fieldset>
             <legend>Update details</legend>
-            <label for="id_first_name">{{ first_name }}</label>
-            {{form.first_name}}
-            <label for="id_last_name">{{ last_name }}</label>
-            {{form.last_name}}
-            <label for="id_email">{{ email }}</label>
-            {{form.email}}
+            {{form|crispy}}
+            
             <input class="submit-button" type="submit" value="Submit">
         </fieldset>
     </form>
@@ -29,7 +26,7 @@
         {% csrf_token %}
         <fieldset>
             <legend>Change password</legend>
-            <input class="input" type="password" placeholder="Enter your new password" name="password">
+            {{change_password_form|crispy}}
             <input class="submit-button" type="submit" value="Change password">
         </fieldset>
     </form>

@@ -1,22 +1,21 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h1>Register</h1>
+{% load crispy_forms_filters %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
 
-<form action="{% url 'new_user' %}" method="POST">
-    {% csrf_token %}
-    {{form.first_name.label}}
-    {{form.first_name}}
-    {{form.last_name.label}}
-    {{form.last_name}}
-    {{form.username.label}}
-    {{form.username}}
-    {{form.email.label}}
-    {{form.email}}
-    {{form.password1.label}}
-    {{form.password1}}
-    {{form.password2.label}}
-    {{form.password2}}
-    <input type="submit" value="Submit">
-</form>
+{% block content %}
+<h1 class="heading">Register</h1>
+
+<section id="container">
+    <form action="{% url 'new_user' %}" method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="Submit" class="submit-button">
+    </form>
+
+</section>
+
 {% endblock %}

@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/*Forms*/
+
+#container{
+    width: 90%;
+    margin: 20px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.submit-button{
+    width: 100%;
+    color: black;
+    background-color: rgb(201, 201, 201);
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    border: none;
+}
+
+.submit-button:hover{
+    background-color: rgb(102, 102, 102);
+    color: white;
+}
+
+@media(min-width: 768px){
+    
+    #container{
+        width: 50%;
+        margin: 20px auto 30px auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+/*User page*/
+
+.delete-button{
+    background-color: red;
+    color: white;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    border: none;
+}
+
+.delete-button:hover{
+    background-color: rgba(255, 0, 0, 0.822);
+}
+
+.center{
+    text-align: center;
+}
