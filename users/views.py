@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import ext_UserCreationForm, ChangingStuff, ChangePassword
 from django.contrib import messages
 from django.contrib.auth.models import User
+import re
 
 
 def new_user(request):
@@ -43,11 +44,16 @@ def change_password(request):
     if request.method == "POST":
         u = User.objects.get(username=request.user.username)
         new_password = request.POST["password"]
-        u.set_password(new_password)
-        u.save()
-        messages.success(request, 'Password updated')
-
-        return redirect("login")
+        new_password_length = len(new_password)
+        if new_password_length >= 5 and re.search(r"[\d]+", new_password):
+            u.set_password(new_password)
+            u.save()
+            messages.success(request, 'Password updated')
+            return redirect("login")
+        else:
+            messages.info(request, '5 characters, 1 digit')
+            return redirect("user_page")
+            
 
 
 def change_stuff(request):
@@ -62,6 +68,9 @@ def change_stuff(request):
 
         return redirect("user_page")
 
+
+def confirmation(request):
+    return render(request, "users/confirmation.html")
 
 def delete_user(request):
     user = User.objects.get(username=request.user.username)

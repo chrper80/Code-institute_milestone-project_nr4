@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+<div class="confirm-container">
+    <h3>Delete Account</h3>
+    <p>Proceed?</p>
+    
+    <div class="confirm-inner">
+        <form action="{% url 'delete_user' %}">
+            {% csrf_token %}
+            <input class="yes" type="submit" value="Yes" >
+        </form>
+        
+        <form action="{% url 'user_page' %}">
+            {% csrf_token %}
+            <input class="no" type="submit" value="No" >
+        </form>
+    </div>
+    
+</div>
+
+{% endblock %}

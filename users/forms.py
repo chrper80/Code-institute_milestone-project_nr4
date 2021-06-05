@@ -13,6 +13,10 @@ class ext_UserCreationForm(UserCreationForm):
         model = User
         fields = ['first_name', 'last_name', 'username',
                   'email', 'password1', 'password2']
+        
+        help_texts = {
+            'username': None,
+        }
 
 
 class ChangingStuff(forms.Form):
@@ -27,7 +31,6 @@ class ChangePassword(ModelForm):
         fields = ["password"]
         widgets = {
             "password": PasswordInput(attrs={
-                "class": "input",
                 "placeholder": "Enter your new password",
             })
         }

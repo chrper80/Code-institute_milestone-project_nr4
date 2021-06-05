@@ -15,7 +15,7 @@
         <fieldset>
             <legend>Update details</legend>
             {{form|crispy}}
-            
+
             <input class="submit-button" type="submit" value="Submit">
         </fieldset>
     </form>
@@ -30,10 +30,17 @@
             <input class="submit-button" type="submit" value="Change password">
         </fieldset>
     </form>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.info }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
 
     <br>
 
-    <form action="{% url 'delete_user' %}">
+    <form action="{% url 'confirmation' %}" method="GET">
         <fieldset>
             <legend>Delete user profile</legend>
             <input class="delete-button" type="submit" value="Delete">
@@ -41,4 +48,8 @@
 
     </form>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'users/users.js' %}"></script>
 {% endblock %}
