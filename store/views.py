@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Category, Product
+from .forms import ContactForm
+from django.core.mail import send_mail
 
 
 def index(request):
@@ -74,3 +76,28 @@ def remove_from_cart(request):
         request.session["cart_items"] = cart_ids
 
     return redirect("add_cart")
+
+
+def contact(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            message = form.cleaned_data["message"]
+
+            send_mail(
+                f"Mail from {name}, {email}",
+                message,
+                email,
+                ['chrper80@gmail.com'],
+                fail_silently=False,
+            )
+    
+    form = ContactForm
+
+    context = {
+        "form": form
+    }
+
+    return render(request, "store/contact.html", context)

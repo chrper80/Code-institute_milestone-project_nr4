@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1 class="heading">Contact</h1>
+<section id="container">
+    <form id="contact-form" action="{% url 'contact' %}" method="POST">
+        {%csrf_token %}
+        {{form|crispy}}
+        <div id="button"></div>
+    </form>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'store/contact.js' %}" 
+{% endblock %}
