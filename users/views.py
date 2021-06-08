@@ -53,7 +53,6 @@ def change_password(request):
         else:
             messages.info(request, '5 characters, 1 digit')
             return redirect("user_page")
-            
 
 
 def change_stuff(request):
@@ -71,6 +70,7 @@ def change_stuff(request):
 
 def confirmation(request):
     return render(request, "users/confirmation.html")
+
 
 def delete_user(request):
     user = User.objects.get(username=request.user.username)

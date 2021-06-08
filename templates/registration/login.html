@@ -26,7 +26,9 @@
     <form method="post" action="{% url 'login' %}">
       {% csrf_token %}
       {{form|crispy}}
-      <input class="submit-button" type="submit" value="login" />
+      <div class="d-grid">
+        <button class="btn btn-primary submit-button" type="submit">Login</button>
+      </div>
       <input type="hidden" name="next" value="{{ next }}" />
   
       {% for message in messages %}
@@ -37,6 +39,6 @@
   
 
   {# Assumes you setup the password_reset view in your URLconf #}
-  <p class="center"><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  <p class="center-text-horizontally"><a class="remove-text-decoration" href="{% url 'password_reset' %}">Lost password?</a></p>
 
 {% endblock %}

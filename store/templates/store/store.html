@@ -7,15 +7,15 @@
 {% block content %}
 <h1 class="heading">{{category.category_name}}</h1>
 <section id="products-container">
-    {% for i in products %}
+    {% for item in products %}
 
 
     <div class="product-container">
-        <a href="{% url 'ind_products' i.id %}">
-            <img src="{{i.product_image.url}}" alt="A natur image">
+        <a href="{% url 'ind_products' item.id %}">
+            <img src="{{item.product_image.url}}" alt="A natur image">
         </a>
-        <h4>{{i.product_name}}</h4>
-        <p>{{i.display_price}}kr</p>
+        <h4>{{item.product_name}}</h4>
+        <p>{{item.display_price}}kr</p>
 
     </div>
 

@@ -16,7 +16,9 @@
             <legend>Update details</legend>
             {{form|crispy}}
 
-            <input class="submit-button" type="submit" value="Submit">
+            <div class="d-grid">
+                <button class="btn btn-primary submit-button" type="submit">Update</button>
+              </div>
         </fieldset>
     </form>
 
@@ -27,7 +29,9 @@
         <fieldset>
             <legend>Change password</legend>
             {{change_password_form|crispy}}
-            <input class="submit-button" type="submit" value="Change password">
+            <div class="d-grid">
+                <button class="btn btn-primary submit-button" type="submit">Change password</button>
+              </div>
         </fieldset>
     </form>
     {% if messages %}
@@ -43,7 +47,9 @@
     <form action="{% url 'confirmation' %}" method="GET">
         <fieldset>
             <legend>Delete user profile</legend>
-            <input class="delete-button" type="submit" value="Delete">
+            <div class="d-grid">
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </div>
         </fieldset>
 
     </form>

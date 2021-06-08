@@ -101,3 +101,13 @@ def contact(request):
     }
 
     return render(request, "store/contact.html", context)
+
+
+def store(request):
+    products = Product.objects.all()
+
+    context = {
+        "products": products
+    }
+
+    return render(request, "store/store.html", context )

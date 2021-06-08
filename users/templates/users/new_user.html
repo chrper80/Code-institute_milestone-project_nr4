@@ -13,9 +13,11 @@
     <form action="{% url 'new_user' %}" method="POST">
         {% csrf_token %}
         {{form|crispy}}
-        <input type="submit" value="Submit" class="submit-button">
+        <div class="d-grid">
+            <button class="btn btn-primary" type="submit">Register</button>
+        </div>
     </form>
-    
+
 </section>
 
 {% endblock %}

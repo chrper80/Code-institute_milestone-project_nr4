@@ -1,13 +1,14 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from django.forms import ModelForm, PasswordInput
+from django.forms import ModelForm, PasswordInput, TextInput
 
 
 class ext_UserCreationForm(UserCreationForm):
-    password1 = forms.CharField(widget=forms.PasswordInput)
+    password1 = forms.CharField(widget=forms.PasswordInput, label='Password')
 
-    password2 = forms.CharField(widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        widget=forms.PasswordInput, label='Confirm password')
 
     class Meta:
         model = User
