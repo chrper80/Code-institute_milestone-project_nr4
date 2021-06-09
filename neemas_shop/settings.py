@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-mjqgdq_l*=ae4f4jje*ku6%wihufnz=k1dqrccy&56%we^1591
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['milestone-project4.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -71,12 +71,26 @@ WSGI_APPLICATION = 'neemas_shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+
+    DATABASES = {
+
+        'default': dj_database_url.parse(os.environ.get('postgres://wvfoqbqqdwkdut:7e7b8ed483976ec74bb8c173e8a4622f0a4576defe0e0fef02bbe4b67659f54c@ec2-54-155-92-75.eu-west-1.compute.amazonaws.com:5432/d66enltm0903kt'))
+
     }
-}
+
+else:
+
+    DATABASES = {
+
+        'default': {
+
+            'ENGINE': 'django.db.backends.sqlite3',
+
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        }
+    }
 
 
 # Password validation
@@ -131,7 +145,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 
 
-#Sending emails
+# Sending emails
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
