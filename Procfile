@@ -1,1 +1,1 @@
-web: gunicorn milestone-project4.wsgi:application
+web: gunicorn neemas_shop.wsgi:application
