@@ -75,7 +75,7 @@ if 'DATABASE_URL' in os.environ:
 
     DATABASES = {
 
-        'default': dj_database_url.parse(os.environ.get('postgres://wvfoqbqqdwkdut:7e7b8ed483976ec74bb8c173e8a4622f0a4576defe0e0fef02bbe4b67659f54c@ec2-54-155-92-75.eu-west-1.compute.amazonaws.com:5432/d66enltm0903kt'))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
     }
 
