@@ -1,0 +1,1 @@
+api_key = 'sk_test_51IrK6mCqjsw7VUNIj2NfIL20SH0CXFq67YNp8O6vnQBIbyqzAljNQC3p45cmrN7XeehspXei1tn7gciLP2CpzGqn00XjdExS9E'
