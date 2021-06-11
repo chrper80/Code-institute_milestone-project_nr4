@@ -3,11 +3,10 @@ from django.shortcuts import render
 import stripe
 from django.http import JsonResponse
 from store.models import Product
-from payments.secret import api_key
-from django.shortcuts import render
 from django.views.generic import TemplateView
+import os
 
-stripe.api_key = api_key
+stripe.api_key = os.getenv('API_KEY', '')
 
 
 YOUR_DOMAIN = 'https://8000-coffee-monkey-3g36cohx.ws-eu08.gitpod.io/'
