@@ -1,14 +1,11 @@
-<html>
-<head>
-  <title>Thanks for your order!</title>
+{% extends "base.html" %}
+{% load static %}
   
-</head>
-<body>
-  <section>
+{%block content %}
+<section class="center-text-horizontally">
     <p>
       We appreciate your business! If you have any questions, please email
       <a href="mailto:orders@example.com">orders@example.com</a>.
     </p>
   </section>
-</body>
-</html>
+  {% endblock %}
