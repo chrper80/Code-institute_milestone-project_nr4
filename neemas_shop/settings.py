@@ -76,11 +76,14 @@ WSGI_APPLICATION = 'neemas_shop.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
 
+    print("Postgres loading")
+
     DATABASES = {
 
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
     }
+
 
 else:
 
@@ -175,5 +178,3 @@ EMAIL_HOST_PASSWORD = 'Sfx341#1'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-

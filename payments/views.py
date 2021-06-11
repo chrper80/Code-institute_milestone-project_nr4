@@ -9,7 +9,7 @@ import os
 stripe.api_key = os.getenv('API_KEY', '')
 
 
-YOUR_DOMAIN = 'https://8000-coffee-monkey-3g36cohx.ws-eu08.gitpod.io/'
+YOUR_DOMAIN = 'https://8000-coffee-monkey-3g36cohx.ws-eu09.gitpod.io/'
 
 
 def create_checkout_session(request):
