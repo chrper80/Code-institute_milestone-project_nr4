@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Category, Product
 from .forms import ContactForm
 from django.core.mail import send_mail
+from django.utils.datastructures import MultiValueDictKeyError
+from django.contrib import messages
+
 
 
 def index(request):
@@ -106,29 +109,34 @@ def contact(request):
 def store(request):
     products = Product.objects.all().order_by('category')
     if request.method == "POST":
-        if request.POST["option"] == "forest":
-            products = []
-            all_products = Product.objects.all()
-            for product in all_products:
-                if product.category.category_name == "Forest":
-                    products.append(product)
+        try:
+            if request.POST["option"] == "forest":
+                products = []
+                all_products = Product.objects.all()
+                for product in all_products:
+                    if product.category.category_name == "Forest":
+                        products.append(product)
 
-        elif request.POST["option"] == "water":
-            products = []
-            all_products = Product.objects.all()
-            for product in all_products:
-                if product.category.category_name == "Water":
-                    products.append(product)
+            elif request.POST["option"] == "water":
+                products = []
+                all_products = Product.objects.all()
+                for product in all_products:
+                    if product.category.category_name == "Water":
+                        products.append(product)
 
-        elif request.POST["option"] == "small_things":
-            products = []
-            all_products = Product.objects.all()
-            for product in all_products:
-                if product.category.category_name == "Small things":
-                    products.append(product)
+            elif request.POST["option"] == "small_things":
+                products = []
+                all_products = Product.objects.all()
+                for product in all_products:
+                    if product.category.category_name == "Small things":
+                        products.append(product)
 
-        else:
-            products = Product.objects.all().order_by('category')
+            else:
+                products = Product.objects.all().order_by('category')
+
+        except MultiValueDictKeyError:
+            messages.info(request, 'Choose an option to filter')
+            pass
 
     context = {
         "products": products

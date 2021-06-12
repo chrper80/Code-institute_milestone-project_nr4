@@ -9,6 +9,7 @@
 .heading {
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .center-text-horizontally {
@@ -28,7 +29,7 @@
 
 #container {
     width: 90%;
-    margin: 20px auto 0 auto;
+    margin: 0 auto 0 auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -42,7 +43,7 @@
 
     #container {
         width: 50%;
-        margin: 20px auto 30px auto;
+        margin: 0 auto 30px auto;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -458,7 +459,7 @@ td {
     
     .radio-buttons-container{
         width: 90%;
-        padding-left: 15%;
+        padding-left: 18%;
     }
 }
 
@@ -466,8 +467,43 @@ td {
     
     .radio-buttons-container{
         width: 90%;
-        padding-left: 10%;
+        padding-left: 7%;
     }
+}
+
+@media(min-width: 1440px){
+    
+    .radio-buttons-container{
+        width: 90%;
+        padding-left: 14%;
+    }
+}
+
+/*Messages*/
+
+.messages{
+    height: 50px;
+    width: 100%;
+    background-color: rgb(224, 224, 224);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messages i{
+    position: fixed;
+    right: 30px;
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+}
+
+.hover-effect{
+    color: red;
+    font-size: 2rem;
+    transition-property: all;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in;
 }
 
 
