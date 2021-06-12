@@ -2,10 +2,46 @@
 {% load static %}
 
 {% block content %}
-<h1 class="heading">{{category.category_name}}</h1>
-<section id="products-container">
-    {% for item in products %}
+<h1 class="heading">Store</h1>
 
+<section class="radio-buttons-container">
+    <form action="{% url 'store' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="option" value="forest" id="forest">
+            <label class="form-check-label" for="forest">
+                Forest
+            </label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="option" value="water" id="water">
+            <label class="form-check-label" for="water">
+                Water
+            </label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="option" value="small_things" id="small_things">
+            <label class="form-check-label" for="forest">
+                Small things
+            </label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="option" value="all_images" id="all_images">
+            <label class="form-check-label" for="all_images">
+                All images
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+</section>
+
+<section id="products-container">
+
+    {% for item in products %}
 
     <div class="product-container">
         <a href="{% url 'ind_products' item.id %}">

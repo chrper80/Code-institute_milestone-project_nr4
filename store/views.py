@@ -93,7 +93,7 @@ def contact(request):
                 ['chrper80@gmail.com'],
                 fail_silently=False,
             )
-    
+
     form = ContactForm
 
     context = {
@@ -104,10 +104,34 @@ def contact(request):
 
 
 def store(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('category')
+    if request.method == "POST":
+        if request.POST["option"] == "forest":
+            products = []
+            all_products = Product.objects.all()
+            for product in all_products:
+                if product.category.category_name == "Forest":
+                    products.append(product)
+
+        elif request.POST["option"] == "water":
+            products = []
+            all_products = Product.objects.all()
+            for product in all_products:
+                if product.category.category_name == "Water":
+                    products.append(product)
+
+        elif request.POST["option"] == "small_things":
+            products = []
+            all_products = Product.objects.all()
+            for product in all_products:
+                if product.category.category_name == "Small things":
+                    products.append(product)
+
+        else:
+            products = Product.objects.all().order_by('category')
 
     context = {
         "products": products
     }
 
-    return render(request, "store/store.html", context )
+    return render(request, "store/store.html", context)
