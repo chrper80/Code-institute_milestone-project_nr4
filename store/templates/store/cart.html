@@ -2,43 +2,63 @@
 {% load static %}
 
 {% block stripe-scripts %}
-    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
-    <script src="https://js.stripe.com/v3/"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
 {% endblock %}
 
 {% block content %}
 <h1 class="heading">Cart</h1>
 <section class="table-container">
-    <table>
-    
-        <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Remove</th>
-        </tr>
-        {% for i, p in products_in_cart.items %}
-        <tr>
-            <td>{{p.product.product_name}}</td>
-            <td>{{p.product.display_price}}kr</td>
-            <td>{{p.counter}}</td>
-            <td>
-                <form action="{% url 'remove_from_cart' %}" method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" name="id" value="{{p.product.id}}">
-                    <input type="submit" value="Remove">
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-        
-    </table>
-    
-<button type="button" id="checkout-button">Checkout</button>
-{% csrf_token %}
-</section>
+  <table>
+    <thead>
+      <tr>
+        <th class="th-radius-left">Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th class="th-radius-right">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i, p in products_in_cart.items %}
+      <tr>
+        <td>{{p.product.product_name}}</td>
+        <td>{{p.product.display_price}}kr</td>
+        <td>{{p.counter}}</td>
+        <td>
+          <form action="{% url 'remove_from_cart' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{p.product.id}}">
+            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <th class="th-radius-left-top">VAT</th>
+        <th>{{vat}}</th>
+        <th></th>
+        <th class="th-radius-right-top"></th>
+      </tr>
+      <tr>
+        <th class="th-radius-left-bottom">Grand total</th>
+        <th>{{grand_total}}kr</th>
+        <th></th>
+        <th class="th-radius-right-bottom"></th>
+      </tr>
+    </tfoot>
 
-    
+  </table>
+  
+  
+  {% csrf_token %}
+</section>
+<div class="d-grid gap-2 checkout-button">
+  <button class="btn btn-primary" type="button" id="checkout-button">Checkout</button>
+</div>
+
+
 {% endblock %}
 
 {% block scripts %}
@@ -48,38 +68,40 @@
 {% block stripe-js %}
 
 <script type="text/javascript">
-  
-    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-      
-    // Create an instance of the Stripe object with your publishable API key
-      var stripe = Stripe("pk_test_51IrK6mCqjsw7VUNImYnDdZA5k157HoaoKVYpnlYQ2hVC7ziNzCv6XtJ937hke6GwjEgDqJfZyZVpJihnbUmA7uvq005rYToYqH");
-      var checkoutButton = document.getElementById("checkout-button");
-  
-      checkoutButton.addEventListener("click", function () {
-        fetch("{% url 'create_checkout_session' %}", {
-          method: "POST",
-          headers: {
+  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+  // Create an instance of the Stripe object with your publishable API key
+  var stripe = Stripe(
+    "pk_test_51IrK6mCqjsw7VUNImYnDdZA5k157HoaoKVYpnlYQ2hVC7ziNzCv6XtJ937hke6GwjEgDqJfZyZVpJihnbUmA7uvq005rYToYqH");
+  var checkoutButton = document.getElementById("checkout-button");
+
+  checkoutButton.addEventListener("click", function () {
+    fetch("{% url 'create_checkout_session' %}", {
+        method: "POST",
+        headers: {
           'X-CSRFToken': csrftoken
-      }
-        })
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (session) {
-            return stripe.redirectToCheckout({ sessionId: session.id });
-          })
-          .then(function (result) {
-            // If redirectToCheckout fails due to a browser or network
-            // error, you should display the localized error message to your
-            // customer using error.message.
-            if (result.error) {
-              alert(result.error.message);
-            }
-          })
-          .catch(function (error) {
-            console.error("Error:", error);
-          });
+        }
+      })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (session) {
+        return stripe.redirectToCheckout({
+          sessionId: session.id
+        });
+      })
+      .then(function (result) {
+        // If redirectToCheckout fails due to a browser or network
+        // error, you should display the localized error message to your
+        // customer using error.message.
+        if (result.error) {
+          alert(result.error.message);
+        }
+      })
+      .catch(function (error) {
+        console.error("Error:", error);
       });
-    </script>
+  });
+</script>
 
 {% endblock %}

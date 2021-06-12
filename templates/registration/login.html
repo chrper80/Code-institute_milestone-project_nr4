@@ -2,39 +2,51 @@
 {% load static %}
 {% load crispy_forms_filters %}
 
+{% block messages %}
+{% if messages %}
+
+{% for message in messages %}
+<h4 class="messages" id="messages">
+  {{message}}
+  <i class="fas fa-times" id="exit"></i>
+</h4>
+{% endfor %}
+
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <h1 class="heading">Login</h1>
 
 {% if form.errors %}
-    <p class="center">Your username and password didn't match. Please try again.</p>
-  {% endif %}
+<p class="center-text-horizontally">Your username and password didn't match. Please try again.</p>
+{% endif %}
 
-  {% if next %}
-    {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
-    {% else %}
-      <p>Please login to see this page.</p>
-    {% endif %}
-  {% endif %}
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed,
+  please login with an account that has access.</p>
+{% else %}
+<p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
 
-  <section id="container">
-    <form method="post" action="{% url 'login' %}">
-      {% csrf_token %}
-      {{form|crispy}}
-      <div class="d-grid">
-        <button class="btn btn-primary submit-button" type="submit">Login</button>
-      </div>
-      <input type="hidden" name="next" value="{{ next }}" />
-  
-      {% for message in messages %}
-      <p>{{message}}</p>
-      {% endfor %}
-    </form>
-  </section>
-  
+<section id="container">
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{form|crispy}}
+    <div class="d-grid">
+      <button class="btn btn-primary submit-button" type="submit">Login</button>
+    </div>
+    <input type="hidden" name="next" value="{{ next }}" />
 
-  {# Assumes you setup the password_reset view in your URLconf #}
-  <p class="center-text-horizontally"><a class="remove-text-decoration" href="{% url 'password_reset' %}">Lost password?</a></p>
+    
+  </form>
+</section>
+
+
+{# Assumes you setup the password_reset view in your URLconf #}
+<p class="center-text-horizontally"><a class="remove-text-decoration" href="{% url 'password_reset' %}">Lost
+    password?</a></p>
 
 {% endblock %}

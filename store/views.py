@@ -6,13 +6,13 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib import messages
 
 
-
 def index(request):
     categories = Category.objects.all()
 
     context = {
         "categories": categories
     }
+
     return render(request, 'store/index.html', context)
 
 
@@ -61,8 +61,17 @@ def add_cart(request):
 
     request.session["cart_items"] = cart_ids
 
+    prices = []
+    for v in products_in_cart.values():
+        prices.append(v["product"].product_price)
+
+    grand_total = (sum(prices)/100) * 1.25
+    vat = grand_total * 0.20
+
     context = {
         "products_in_cart": products_in_cart,
+        "grand_total": grand_total,
+        "vat": vat
     }
 
     return render(request, "store/cart.html", context)
@@ -96,6 +105,7 @@ def contact(request):
                 ['chrper80@gmail.com'],
                 fail_silently=False,
             )
+            messages.success(request, 'Message sent!')
 
     form = ContactForm
 

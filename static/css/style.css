@@ -397,28 +397,102 @@
     flex-direction: column;
 }
 
+thead{
+    text-align: center;
+}
+
+tbody{
+    text-align: center;
+}
+
+tfoot{
+    text-align: center;
+}
+
+
 table {
-    width: 80vw;
     font-size: 0.8rem;
-    margin-bottom: 15px;
-}
-
-table,
-th,
-td {
-    border: 1px solid black;
-}
-
-table,
-th,
-td {
-    border: 1px solid black;
-    border-collapse: collapse;
+    margin-bottom: 20px;
+    width: 90vw;
 }
 
 th,
 td {
-    padding: 15px;
+    padding: 10px;
+}
+
+th{
+    background-color: rgb(190, 190, 190);
+}
+
+.th-radius-left{
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.th-radius-right{
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.th-radius-left-top{
+    border-radius: 0.25rem 0 0 0;
+}
+
+.th-radius-left-bottom{
+    border-radius: 0 0 0 0.25rem;
+}
+
+.th-radius-right-top{
+    border-radius: 0 0.25rem 0 0;
+}
+
+.th-radius-right-bottom{
+    border-radius: 0 0 0.25rem 0;
+}
+
+.checkout-button{
+    width: 90vw;
+    margin: 0 auto;
+}
+
+@media(min-width: 1024px) {
+    .table-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    thead{
+        text-align: center;
+    }
+    
+    tbody{
+        text-align: center;
+    }
+    
+    tfoot{
+        text-align: center;
+    }
+    
+    
+    table {
+        font-size: 0.8rem;
+        margin-bottom: 40px;
+        width: 50vw;
+    }
+    
+    th,
+    td {
+        padding: 10px;
+    }
+    
+    th{
+        background-color: rgb(190, 190, 190);
+    }
+    
+    .checkout-button{
+        width: 20vw;
+        margin: 0 auto;
+    }
 }
 
 
@@ -437,7 +511,7 @@ td {
 
 /*Store*/
 
-.radio-buttons-container{
+.radio-buttons-container {
     width: 90%;
     padding-left: 7%;
 }
@@ -445,35 +519,35 @@ td {
 .form-check-inline {
     display: inline-block;
     margin-right: 3px;
-  }
+}
 
-  @media(min-width: 768px){
-    
-    .radio-buttons-container{
+@media(min-width: 768px) {
+
+    .radio-buttons-container {
         width: 90%;
         padding-left: 20%;
     }
 }
 
-@media(min-width: 768px){
-    
-    .radio-buttons-container{
+@media(min-width: 768px) {
+
+    .radio-buttons-container {
         width: 90%;
         padding-left: 18%;
     }
 }
 
-@media(min-width: 1280px){
-    
-    .radio-buttons-container{
+@media(min-width: 1280px) {
+
+    .radio-buttons-container {
         width: 90%;
         padding-left: 7%;
     }
 }
 
-@media(min-width: 1440px){
-    
-    .radio-buttons-container{
+@media(min-width: 1440px) {
+
+    .radio-buttons-container {
         width: 90%;
         padding-left: 14%;
     }
@@ -481,7 +555,7 @@ td {
 
 /*Messages*/
 
-.messages{
+.messages {
     height: 50px;
     width: 100%;
     background-color: rgb(224, 224, 224);
@@ -490,7 +564,7 @@ td {
     align-items: center;
 }
 
-.messages i{
+.messages i {
     position: fixed;
     right: 30px;
     transition-property: all;
@@ -498,13 +572,10 @@ td {
     transition-timing-function: ease-out;
 }
 
-.hover-effect{
+.hover-effect {
     color: red;
     font-size: 2rem;
     transition-property: all;
     transition-duration: 200ms;
     transition-timing-function: ease-in;
 }
-
-
-
