@@ -22,11 +22,11 @@
     <form id="contact-form" action="{% url 'contact' %}" method="POST">
         {%csrf_token %}
         {{form|crispy}}
-        <div id="button" class="d-grid"></div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary submit-button" type="submit">Submit</button>
+        </div>
     </form>
 </section>
 
 {% endblock %}
 
-{% block scripts %}
-<script src="{% static 'store/contact.js' %}" {% endblock %}

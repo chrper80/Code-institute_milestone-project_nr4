@@ -8,6 +8,7 @@
 
 {% block content %}
 <h1 class="heading">Cart</h1>
+{% if products_in_cart %}
 <section class="table-container">
   <table>
     <thead>
@@ -58,6 +59,18 @@
   <button class="btn btn-primary" type="button" id="checkout-button">Checkout</button>
 </div>
 
+{% else %}
+
+<div class="empty-cart">
+  <h3>Your cart is empty!</h3>
+
+  <i class="fas fa-shopping-bag bag"></i>
+  
+  <a href="{% url 'store' %}"><button type="button" class="btn btn-primary">Keep shopping</button></a>
+</div>
+
+
+{% endif %}
 
 {% endblock %}
 
