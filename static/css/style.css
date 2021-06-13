@@ -559,23 +559,56 @@ th{
     height: 50px;
     width: 100%;
     background-color: rgb(224, 224, 224);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(12, auto);
+    place-items: center center;
 }
 
 .messages i {
-    position: fixed;
-    right: 30px;
+    grid-column-start: 11;
     transition-property: all;
     transition-duration: 200ms;
     transition-timing-function: ease-out;
 }
 
+.messages h4{
+    grid-column-start: 7;
+}
+
 .hover-effect {
     color: red;
-    font-size: 2rem;
     transition-property: all;
     transition-duration: 200ms;
     transition-timing-function: ease-in;
+}
+
+@media(min-width: 1024px){
+    .messages {
+        height: 50px;
+        width: 100%;
+        background-color: rgb(224, 224, 224);
+        display: grid;
+        grid-template-columns: repeat(12, auto);
+        place-items: center center;
+    }
+    
+    .messages i {
+        grid-column-start: 12;
+        transition-property: all;
+        transition-duration: 200ms;
+        transition-timing-function: ease-out;
+    }
+    
+    .messages h4{
+        grid-column-start: 6;
+        grid-column-end: 8;
+
+    }
+    
+    .hover-effect {
+        color: red;
+        transition-property: all;
+        transition-duration: 200ms;
+        transition-timing-function: ease-in;
+    }
 }

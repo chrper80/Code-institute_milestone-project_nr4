@@ -145,7 +145,7 @@ def store(request):
                 products = Product.objects.all().order_by('category')
 
         except MultiValueDictKeyError:
-            messages.info(request, 'Choose an option to filter')
+            messages.info(request, "You didn't choose an option")
             pass
 
     context = {

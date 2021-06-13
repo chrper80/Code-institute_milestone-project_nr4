@@ -6,10 +6,10 @@
 {% if messages %}
 
 {% for message in messages %}
-<h4 class="messages" id="messages">
-    {{message}} 
+<div class="messages" id="messages">
+    <h4>{{message}}</h4>
     <i class="fas fa-times" id="exit"></i>
-</h4>
+</div>
 {% endfor %}
 
 {% endif %}
@@ -19,7 +19,7 @@
 {% block content %}
 <h1 class="heading">Contact</h1>
 <section id="container">
-    <form id="contact-form"  action="{% url 'contact' %}" method="POST">
+    <form id="contact-form" action="{% url 'contact' %}" method="POST">
         {%csrf_token %}
         {{form|crispy}}
         <div id="button" class="d-grid"></div>
@@ -29,5 +29,4 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{% static 'store/contact.js' %}" 
-{% endblock %}
+<script src="{% static 'store/contact.js' %}" {% endblock %}

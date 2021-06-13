@@ -6,10 +6,10 @@
 {% if messages %}
 
 {% for message in messages %}
-<h4 class="messages" id="messages">
-  {{message}}
-  <i class="fas fa-times" id="exit"></i>
-</h4>
+<div class="messages" id="messages">
+    <h4>{{message}}</h4>
+    <i class="fas fa-times" id="exit"></i>
+</div>
 {% endfor %}
 
 {% endif %}
