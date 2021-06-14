@@ -571,8 +571,9 @@ th {
     transition-timing-function: ease-out;
 }
 
-.messages h4 {
-    grid-column-start: 7;
+.messages h2 {
+    grid-column-start: 6;
+    grid-column-end: 8;
 }
 
 .hover-effect {
@@ -658,4 +659,14 @@ body {
     min-height: 100%;
     display: grid;
     grid-template-rows: 1fr auto;
+}
+
+/*Cancel and Success pages*/
+
+.cancel-success-container{
+    margin-top: 40px;
+}
+
+.cancel-success-container p{
+    margin-bottom: 35px;
 }

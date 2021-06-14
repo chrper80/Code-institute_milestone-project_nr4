@@ -33,7 +33,7 @@
         </fieldset>
     </form>
     {% if messages %}
-    <ul class="messages">
+    <ul>
         {% for message in messages %}
         <li{% if message.tags %} class="{{ message.info }}" {% endif %}>{{ message }}</li>
             {% endfor %}

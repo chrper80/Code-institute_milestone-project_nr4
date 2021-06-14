@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block content %}
-  <section class="center-text-horizontally">
-    <p>Forgot to add something to your cart? Shop around then come back to pay!</p>
+<h1 class="heading">Cancel</h1>
+  <section class="center-text-horizontally cancel-success-container">
+    <p>Forgot to add something to your cart?</p>
+    <a href="{% url 'store' %}"><button type="button" class="btn btn-primary">Back to store</button></a>
   </section>
 {% endblock%}

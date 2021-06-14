@@ -10,7 +10,7 @@ def new_user(request):
     if request.method == "POST":
         if form.is_valid():
             form.save()
-            messages.success(request, 'User created succesfully')
+            messages.success(request, 'User created successfully')
             return redirect("login")
     context = {
         "form": form
@@ -45,13 +45,13 @@ def change_password(request):
         u = User.objects.get(username=request.user.username)
         new_password = request.POST["password"]
         new_password_length = len(new_password)
-        if new_password_length >= 5 and re.search(r"[\d]+", new_password):
+        if new_password_length >= 8 and re.search(r"[\d]+", new_password):
             u.set_password(new_password)
             u.save()
             messages.success(request, 'Password updated')
             return redirect("login")
         else:
-            messages.info(request, '5 characters, 1 digit')
+            messages.info(request, 'Enter a password that is at least 8 characters, at least 1 digit')
             return redirect("user_page")
 
 
@@ -75,4 +75,5 @@ def confirmation(request):
 def delete_user(request):
     user = User.objects.get(username=request.user.username)
     user.delete()
+    messages.success(request, 'User deleted')
     return redirect("new_user")

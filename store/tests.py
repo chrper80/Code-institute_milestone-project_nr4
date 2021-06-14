@@ -54,12 +54,12 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, "store/cart.html")
 
     def test_contact(self):
-        response = self.client.get("/contact/")
+        response = self.client.get("/contact")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "store/contact.html")
 
     def test_store(self):
-        response = self.client.get("/store/")
+        response = self.client.get("/store")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "store/store.html")
 
@@ -76,5 +76,5 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'store/individual_products.html')
 
     def remove_from_cart(self):
-        response = self.client.get("/remove_from_cart/")
+        response = self.client.get("/remove_from_cart")
         self.assertRedirects(response, '/')
