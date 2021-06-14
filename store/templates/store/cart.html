@@ -51,8 +51,8 @@
     </tfoot>
 
   </table>
-  
-  
+
+
   {% csrf_token %}
 </section>
 <div class="d-grid gap-2 checkout-button">
@@ -65,7 +65,7 @@
   <h3>Your cart is empty!</h3>
 
   <i class="fas fa-shopping-bag bag"></i>
-  
+
   <a href="{% url 'store' %}"><button type="button" class="btn btn-primary">Keep shopping</button></a>
 </div>
 
@@ -79,7 +79,7 @@
 {% endblock %}
 
 {% block stripe-js %}
-
+<!--This code is copy pasted from an official Stripe tutorial, with minor adjustments-->
 <script type="text/javascript">
   const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 

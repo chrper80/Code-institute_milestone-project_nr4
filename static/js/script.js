@@ -1,16 +1,18 @@
+/*These functions handles removing flash message and x hover effect*/
+
 let exit = document.querySelector("#exit");
 let messages = document.querySelector("#messages");
 
-function handleClick(event){
+function handleClick(event) {
     event.target.remove()
     messages.remove()
 }
 
-function handleMouseover(){
+function handleMouseover() {
     exit.classList.add("hover-effect")
 }
 
-function handleMouseout(){
+function handleMouseout() {
     exit.classList.remove("hover-effect")
 }
 

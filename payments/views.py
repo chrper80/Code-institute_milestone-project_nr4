@@ -14,6 +14,7 @@ YOUR_DOMAIN = 'https://milestone-project4.herokuapp.com/'
 
 def create_checkout_session(request):
     def test_def(unit_amount, name, images, quantity):
+        # The variable line_item will contain info to be passed to Stripe
         line_item = {
             'price_data': {
                 'currency': 'sek',
@@ -59,11 +60,11 @@ def create_checkout_session(request):
         except Exception as e:
             return JsonResponse(str(e), safe=False)
 
-
+# The customer get's redirected here when cancelling a purchase
 class CancelView(TemplateView):
     template_name = 'payments/cancel.html'
 
-
+# The customer get's redirected here when purchase is successful
 def success(request):
     del request.session['cart_items']
     return render(request, 'payments/success.html')

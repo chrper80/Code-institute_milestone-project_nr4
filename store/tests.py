@@ -3,7 +3,6 @@ from .forms import ContactForm
 from .models import Product, Category
 
 
-# Test the contact form
 class TestContactForm(TestCase):
 
     def test_contact_form_valid_data(self):
@@ -30,7 +29,6 @@ class TestContactForm(TestCase):
         self.assertEquals(len(form.errors), 1)
 
 
-# Test the models
 class TestModels(TestCase):
     '''Testing if the model is represented correctly as a string'''
 

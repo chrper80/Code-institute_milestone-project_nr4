@@ -51,7 +51,7 @@
 }
 
 
-/*Delete or not alert*/
+/*Delete user or not, confirmation.html*/
 
 .confirm-container {
     width: 90%;
@@ -142,7 +142,7 @@
     }
 }
 
-/*Home*/
+/*Home page*/
 
 #category-container {
     width: 90%;
@@ -206,7 +206,7 @@
 
 }
 
-/*categories*/
+/*Categories page*/
 
 #products-container {
     width: 90%;
@@ -329,7 +329,7 @@
 }
 
 
-/*Individual product*/
+/*Individual product page*/
 
 
 .grid-container {
@@ -503,13 +503,13 @@ th {
     margin-top: 100px;
 }
 
-/*Logged out*/
+/*Logged out page*/
 
 .margin-top {
     margin-top: 30px;
 }
 
-/*Store*/
+/*Store page*/
 
 .radio-buttons-container {
     width: 90%;
@@ -553,7 +553,7 @@ th {
     }
 }
 
-/*Messages*/
+/*Flash messages*/
 
 .messages {
     height: 50px;
@@ -614,7 +614,7 @@ th {
     }
 }
 
-/*Empty cart*/
+/*Styles the content that appears when cart is empty*/
 
 .empty-cart {
     text-align: center;
@@ -663,10 +663,10 @@ body {
 
 /*Cancel and Success pages*/
 
-.cancel-success-container{
+.cancel-success-container {
     margin-top: 40px;
 }
 
-.cancel-success-container p{
+.cancel-success-container p {
     margin-bottom: 35px;
 }
