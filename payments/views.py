@@ -61,10 +61,14 @@ def create_checkout_session(request):
             return JsonResponse(str(e), safe=False)
 
 # The customer get's redirected here when cancelling a purchase
+
+
 class CancelView(TemplateView):
     template_name = 'payments/cancel.html'
 
 # The customer get's redirected here when purchase is successful
+
+
 def success(request):
     del request.session['cart_items']
     return render(request, 'payments/success.html')
