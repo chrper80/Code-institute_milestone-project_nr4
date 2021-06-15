@@ -12,7 +12,7 @@
         {% csrf_token %}
         <fieldset>
             <legend>Update details</legend>
-            {{form|crispy}}
+            {{changing_stuff_form|crispy}}
 
             <div class="d-grid">
                 <button class="btn btn-primary submit-button" type="submit">Update</button>
@@ -22,7 +22,7 @@
 
     <br>
 
-    <form action="{% url 'change_password' %}" method="POST">
+    <form action="{% url 'user_page' %}" method="POST">
         {% csrf_token %}
         <fieldset>
             <legend>Change password</legend>
@@ -32,13 +32,7 @@
               </div>
         </fieldset>
     </form>
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.info }}" {% endif %}>{{ message }}</li>
-            {% endfor %}
-    </ul>
-    {% endif %}
+    
 
     <br>
 

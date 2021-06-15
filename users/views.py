@@ -2,16 +2,18 @@ from django.shortcuts import render, redirect
 from .forms import ext_UserCreationForm, ChangingStuff, ChangePassword
 from django.contrib import messages
 from django.contrib.auth.models import User
-import re
 
 
 def new_user(request):
-    form = ext_UserCreationForm(request.POST)
+    form = ext_UserCreationForm(request.POST or None)
+
     if request.method == "POST":
         if form.is_valid():
+
             form.save()
             messages.success(request, 'User created successfully')
             return redirect("login")
+
     context = {
         "form": form
     }
@@ -26,46 +28,41 @@ def user_page(request):
         "username": request.user.username,
         "email": request.user.email,
     }
-    form = ChangingStuff(initial=initial_data)
-    change_password_form = ChangePassword()
+
+    changing_stuff_form = ChangingStuff(initial_data)
+
     username = request.user.username
 
+    if request.method == "POST":
+        user = User.objects.get(username=request.user.username)
+        change_password_form = ChangePassword(request.POST)
+
+        if change_password_form.is_valid():
+            new_password = change_password_form.cleaned_data["password"]
+            user.set_password(new_password)
+            user.save()
+            messages.success(request, 'Password updated')
+            return redirect("login")
+    else:
+        change_password_form = ChangePassword()
+
     context = {
-        "form": form,
         "change_password_form": change_password_form,
-        "username": username
+        "changing_stuff_form": changing_stuff_form,
+        "username": username,
     }
 
     return render(request, 'users/user_page.html', context)
 
 
-def change_password(request):
-
-    if request.method == "POST":
-        u = User.objects.get(username=request.user.username)
-        new_password = request.POST["password"]
-        new_password_length = len(new_password)
-        if new_password_length >= 8 and re.search(r"[\d]+", new_password):
-            u.set_password(new_password)
-            u.save()
-            messages.success(request, 'Password updated')
-            return redirect("login")
-        else:
-            messages.info(request, 'Enter a password that is at least 8 characters, at least 1 digit')
-            return redirect("user_page")
-
-
 def change_stuff(request):
     if request.method == 'POST':
         user = User.objects.get(username=request.user.username)
-        form = ChangingStuff(request.POST)
+        form = ChangingStuff(request.POST, instance=user)
         if form.is_valid():
-            user.first_name = form.cleaned_data["first_name"]
-            user.last_name = form.cleaned_data["last_name"]
-            user.email = form.cleaned_data["email"]
-            user.save()
+            form.save()
 
-        return redirect("user_page")
+            return redirect("user_page")
 
 
 def confirmation(request):

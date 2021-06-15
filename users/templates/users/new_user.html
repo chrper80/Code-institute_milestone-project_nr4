@@ -2,6 +2,7 @@
 
 {% load crispy_forms_filters %}
 {% load static %}
+
 {% block messages %}
 {% for message in messages %}
 <div class="messages" id="messages">
@@ -19,7 +20,7 @@
         {% csrf_token %}
         {{form|crispy}}
         <div class="d-grid">
-            <button class="btn btn-primary" type="submit">Register</button>
+            <button class="btn btn-primary submit-button" type="submit">Register</button>
         </div>
     </form>
 
