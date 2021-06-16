@@ -1,6 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+import re
+from users.wordlist import common_passwords
 
 
 class ext_UserCreationForm(UserCreationForm):
@@ -59,6 +61,12 @@ class ChangePassword(forms.ModelForm):
     def clean_password(self):
         password_passed = self.cleaned_data.get("password")
         length = len(password_passed)
+        result = re.search(r"\d{1}", password_passed)
         if length < 8:
             raise forms.ValidationError("At least 8 characters required")
+        elif result is None:
+            raise forms.ValidationError("At least 1 digit is required")
+        elif password_passed in common_passwords:
+            raise forms.ValidationError(
+                "Is on the list of most common passwords")
         return password_passed
