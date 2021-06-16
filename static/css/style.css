@@ -154,11 +154,11 @@ body{
     margin: 30px auto 30px auto;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
 }
 
 .inner-category-container {
     flex: 300px;
+    margin-bottom: 15px;
 }
 
 
@@ -650,7 +650,7 @@ th {
     align-items: center;
     grid-row-start: 2;
     grid-row-end: 3;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .social-container i {
