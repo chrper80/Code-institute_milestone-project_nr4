@@ -4,16 +4,16 @@ let exit = document.querySelector("#exit");
 let messages = document.querySelector("#messages");
 
 function handleClick(event) {
-    event.target.remove()
-    messages.remove()
+    event.target.remove();
+    messages.remove();
 }
 
 function handleMouseover() {
-    exit.classList.add("hover-effect")
+    exit.classList.add("hover-effect");
 }
 
 function handleMouseout() {
-    exit.classList.remove("hover-effect")
+    exit.classList.remove("hover-effect");
 }
 
 exit.addEventListener("click", handleClick);
