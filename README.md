@@ -1,59 +1,104 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Neemas Shop
 
-Welcome chrper80,
+## User stories
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+* As a user of this site
+  * I want to be able to register an account
+    * Because i want the newsletter with info on special offers
 
-## Gitpod Reminders
+* As a user of this site
+  * If i have created an account, i want to be able to delete it
+    * Because i don't want the newsletter anymore
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* As a user of this site
+  * I want to be able to easily browse and filter the products
+    * Because i don't want to spend to much time searching, then i rather go somewhere else
 
-`python3 -m http.server`
+* As a user of this site
+  * I want to be able to add products to a cart, go to checkout and pay for them
+    * Because ordering by mail and swishing money is less convenient
 
-A blue button should appear to click: _Make Public_,
+* As a user of this site
+  * I want clear feedback on my actions, like "email sent"
+    * Because otherwise it leaves me wondering if it worked
 
-Another blue button should appear to click: _Open Browser_.
+* As a user of this site
+  * I want to be able to contact the owner of the site
+    * Because i might have questions
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* As the owner of this site
+  * I want to showcase my products
+    * Because i want to sell them
 
-A blue button should appear to click: _Make Public_,
+* As the owner of this site
+  * I want to collect email addresses
+    * Because i want to advertise my products via mail
 
-Another blue button should appear to click: _Open Browser_.
+## Features
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Existing features
 
-To log into the Heroku toolbelt CLI:
+#### Navbar
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+It includes a logo (that also links back to the homepage) and links to homepage, store, contact, cart, users page, register, login and logout. The logout and users page will only be available when user is logged in and the register and login will only be visible when the user is logged out or not yet registered.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
+#### Homepage
 
-## Updates Since The Instructional Video
+It contains links to 3 categories: small things in nature, water and forest.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### Store
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+From the start, it contains all products with name and price sorted by category. You can click the images and get to a details page that gives a little more information. On the store page it's possible to filter by category and all products.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+#### Contact
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+This page contains a contact form. The user can send an email to me via this form.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+#### Cart
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+Users can add and remove from cart and click a button to get to checkout. The page also displays VAT and grand total. If the cart is empty, then the page displays a link to keep shopping.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+#### Checkout
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+I integrated Stripes prebuilt checkout page in the project. After successful purchase the user is redirected back to a success page. There is also the option to cancel and being redirected to a cancel page.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+#### Users page
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+The user can see the personal details entered and change them. The user can also change password and delete the profile.
 
----
+#### Login
 
-Happy coding!
+The user can login to the site and can also click a link to reset password. The user will then enter his or her email and then recieves an email. If the user follows the link in the email he or she can create a new password.
+
+#### Logout
+
+A simple log out page. when logged out the user will be presented with a link to log in again.
+
+#### Register
+
+The user have to enter username and password. The page also collects first name, last name and email.
+
+#### The footer
+
+Contains social media accounts and the option to call the site owner.
+
+### Features to implement
+
+A points system. The customer get a point for each successful purchase and after 10 purchases get a discount.
+
+## Testing
+
+### Validator testing
+
+* [CSS](https://jigsaw.w3.org/css-validator/validator)
+  * No errors found when using the Jigsaw validator
+
+* [HTML](https://jigsaw.w3.org/css-validator/validator)
+
+
+
+
+
+
+
+
