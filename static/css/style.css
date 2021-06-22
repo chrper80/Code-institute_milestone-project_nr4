@@ -149,6 +149,16 @@ body{
 
 /*Home page*/
 
+.letter-container{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(238, 238, 238);
+    color: rgb(75, 75, 75);
+    margin-top: 50px;
+}
+
 #category-container {
     width: 90%;
     margin: 30px auto 30px auto;

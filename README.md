@@ -96,7 +96,76 @@ A points system. The customer get a point for each successful purchase and after
 * Bootstrap
 * AWS s3
 
+## Db diagram
+
+![Relational database](static/images/db_diagram.png)
+
 ## Testing
+
+### Evaluation of user stories
+
+#### From user perspective
+
+The user is able to register an account and when doing that the user can also register an email and that will make it possible for the site owner to send newsletter with special offers.
+
+The user is able to delete his/her account if he/she so wish to do.
+
+The user can easily browse the products and filter them.
+
+The user can order and pay directly on the site.
+
+The user gets clear feedback where needed.
+
+The user can contact the owner if needed via the contact form, social media or phone.
+
+#### From the site owners perspective
+
+The owner can showcase and sell her products via the site
+
+The owner can collect emails via the site
+
+### Manual testing
+
+* Home page
+  * Links to category pages works fine
+
+* Store page
+  * Images reacts as expected when hovering over them with mouse
+  * Link to detailspage works fine
+  * Filtering works fine
+  * Exceptionhandling when clicking filter without option works fine
+
+* Details page
+  * It looks as intended and the add to cart button works fine
+
+* Cart
+  * Checkout button works fine
+  * Remove button works fine
+  * Values display as they should
+  When empty a different content is displayed
+
+* Checkout page
+  * Everything works as intended with the payment
+  * I can see on the stripe dashboard that payments are complete
+  * The cancel and success redirections works as they should
+  * The right info is displayed on the Checkout page
+
+* Contact page
+  * Everything works as intended
+
+* Users page
+  * everything works as intended
+
+* Authentication system
+  * Everything works as intended
+  * Some different content is displayed when logged in compared to logged out
+  * The reset password function works as intended
+
+* Navigation and footer links
+  * Everything works as intended
+
+
+
 
 ### Validator testing
 
