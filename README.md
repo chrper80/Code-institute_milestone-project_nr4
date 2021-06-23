@@ -34,6 +34,61 @@
   * I want to collect email addresses
     * Because i want to advertise my products via mail
 
+## Wireframes
+
+### Mobile
+
+#### Homepage
+
+![Homepage](static/images/homepage.png)
+
+#### Store
+
+![Store](static/images/store.png)
+
+#### Contact/register/login
+
+![Contact/register/login](static/images/contact.png)
+
+#### Individual product page
+
+![](static/images/individual_product.png)
+
+#### Cart
+
+![](static/images/cart.png)
+
+#### Users page
+
+![](static/images/users_page.png)
+
+### iPad and desktop
+
+#### Homepage
+
+![Homepage](static/images/homepage-1.png)
+
+#### Store
+
+![Store](static/images/store-1.png)
+
+#### Contact/register/login
+
+![Contact/register/login](static/images/contact-1.png)
+
+#### Individual product page
+
+![Individual product](static/images/individual_product-1.png)
+
+#### Cart
+
+![Cart](static/images/cart-1.png)
+
+#### Users page
+
+![](static/images/users_page-1.png)
+
+
 ## Features
 
 ### Existing features
@@ -338,7 +393,7 @@ I got all my images from [Pexels](https://www.pexels.com/sv-se/).
 
 ### Content
 
-I integrated the Stripe API following [this tutorial](https://stripe.com/docs/checkout/integration-builder) and using the code from there.
+I integrated the Stripe API following [this tutorial](https://stripe.com/docs/checkout/integration-builder) and using the code from there with just minor changes to fit Django.
 
 All icons come from [Font Awsome](https://fontawesome.com/)
 
