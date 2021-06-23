@@ -1,4 +1,4 @@
-<style>background-color: gray;</style>
+<style>background-color: red;</style>
 
 # Neemas Shop
 
