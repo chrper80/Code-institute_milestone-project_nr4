@@ -9,12 +9,12 @@
     <div class="confirm-inner">
         <form action="{% url 'delete_user' %}">
             {% csrf_token %}
-            <input class="yes" type="submit" value="Yes" >
+            <button type="submit" class="btn btn-success yes">Yes</button>
         </form>
         
         <form action="{% url 'user_page' %}">
             {% csrf_token %}
-            <input class="no" type="submit" value="No" >
+            <button type="submit" class="btn btn-danger no">No</button>
         </form>
     </div>
     

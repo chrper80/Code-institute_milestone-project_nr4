@@ -75,24 +75,17 @@ body{
 .confirm-inner {
     display: flex;
     flex-direction: row;
-    column-gap: 10px;
 }
 
 .yes {
-    width: 40px;
-    height: 30px;
-    background-color: red;
-    border: none;
-    color: white;
+    margin: 5px;
+    width: 60px;
 }
 
 
 .no {
-    width: 40px;
-    height: 30px;
-    background-color: green;
-    border: none;
-    color: white;
+    margin: 5px;
+    width: 60px;
 }
 
 @media(min-width:768px) {
@@ -113,38 +106,18 @@ body{
     .confirm-inner {
         display: flex;
         flex-direction: row;
-        column-gap: 10px;
     }
 
     .yes {
-        width: 60px;
-        height: 40px;
-        background-color: red;
-        border: none;
-        color: white;
-        transition-property: background-color;
-        transition-duration: 300ms;
-        transition-timing-function: ease-in;
-    }
-
-    .yes:hover {
-        background-color: rgb(179, 0, 0);
+       margin: 5px;
+       width: 60px;
     }
 
     .no {
+        margin: 5px;
         width: 60px;
-        height: 40px;
-        background-color: green;
-        border: none;
-        color: white;
-        transition-property: background-color;
-        transition-duration: 300ms;
-        transition-timing-function: ease-in;
     }
 
-    .no:hover {
-        background-color: rgb(0, 94, 0);
-    }
 }
 
 /*Home page*/
