@@ -49,4 +49,8 @@
 <p class="center-text-horizontally"><a class="remove-text-decoration" href="{% url 'password_reset' %}">Lost
     password?</a></p>
 
+{% block scripts %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+
 {% endblock %}
