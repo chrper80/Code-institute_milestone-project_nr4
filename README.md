@@ -1,3 +1,5 @@
+<style>background-color: gray;</style>
+
 # Neemas Shop
 
 ## User stories
