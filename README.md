@@ -1,6 +1,6 @@
-<style>background-color: red;</style>
-
 # Neemas Shop
+
+![Image](static/images/capture.PNG)
 
 ## User stories
 
