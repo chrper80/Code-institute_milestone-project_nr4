@@ -390,6 +390,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 * And now you can commit these changes and push them to github.
 
+## Bugs
+
+One interesting bug is when i want to add something to the code that i have copied from OneNote, where i usually write things down. When i was working on my authentication system, i copied from OneNote and pasted in to the settings.py and couldn't get it to work. I then wrote the code in manually instead and it worked. I am not sure why this is happening though.
+
 ## Credit
 
 ### Media
