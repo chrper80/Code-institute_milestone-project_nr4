@@ -151,7 +151,10 @@ A points system. The customer get a point for each successful purchase and after
 * Python
 * Django
 * Bootstrap
+* Font Awsome
+* Heroku
 * AWS s3
+* PostgreSQL
 
 ## Db diagram
 
@@ -397,7 +400,11 @@ I got all my images from [Pexels](https://www.pexels.com/sv-se/).
 
 I integrated the Stripe API following [this tutorial](https://stripe.com/docs/checkout/integration-builder) and using the code from there with just minor changes to fit Django.
 
-All icons come from [Font Awsome](https://fontawesome.com/)
+All icons come from [Font Awsome](https://fontawesome.com/).
+
+I used the Code institute videos mostly when making the deployment part, connecting to PostgreSQL and AWS.
+
+I asked tutor support sometimes to get on the right track.
 
 
 
